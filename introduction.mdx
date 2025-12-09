@@ -1,0 +1,111 @@
+---
+title: Welcome to Savanth Documentation
+description: An overview of Savanth Documentation, the default space for organizing and managing all your project documentation with ease.
+---
+
+## Overview
+
+Savanth Documentation provides a centralized hub for your project's documentation. You can create, organize, and publish MDX-powered pages effortlessly. This default space supports version control, search, and collaboration features to streamline your workflow.
+
+With Savanth, you maintain full control over content structure using familiar Markdown and MDX syntax. Customize themes with your brand color, such as `#3B82F6`, and integrate seamlessly with Git repositories for automatic updates.
+
+<Callout kind="info">
+Savanth handles rendering of advanced components like interactive tabs and code groups without additional setup.
+</Callout>
+
+## Key Features and Benefits
+
+Savanth Documentation offers powerful tools to enhance your documentation experience.
+
+<Columns cols={3}>
+  <Card title="MDX Components" icon="code" href="/docs/components">
+    Use rich components like `<Steps>`, `<Tabs>`, and `<CodeGroup>` for interactive docs.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="/docs/versioning">
+    Sync changes from your Git repo with automatic deployments.
+  </Card>
+  <Card title="Search and Navigation" icon="search" href="/docs/search">
+    Full-text search and sidebar navigation keep users oriented.
+  </Card>
+</Columns>
+
+These features reduce maintenance overhead and improve user engagement.
+
+| Feature | Benefit |
+|---------|---------|
+| Custom Themes | Match your brand with colors like `#3B82F6` |
+| Collaboration | Real-time edits and comments |
+| Analytics | Track page views and engagement |
+
+## How to Get Started
+
+Follow these steps to set up your first documentation site.
+
+<Steps>
+  <Step title="Create Account" icon="user-plus">
+    Sign up at savanth.io with your email or GitHub account.
+  </Step>
+  <Step title="Initialize Space" icon="folder-plus">
+    Create a new documentation space and link your repository.
+  </Step>
+  <Step title="Add Content" icon="file-plus">
+    Upload your `introduction.mdx` file or edit directly in the editor.
+  </Step>
+  <Step title="Publish" icon="globe">
+    Deploy changes with one click—live in seconds.
+  </Step>
+</Steps>
+
+### Platform-Specific Setup
+
+<Tabs>
+  <Tab title="Web Editor" icon="edit-3">
+    Access the built-in MDX editor for quick edits.
+
+    ```bash
+    # No installation needed—edit in browser
+    savanth edit /docs/introduction.mdx
+    ```
+  </Tab>
+  <Tab title="CLI" icon="terminal">
+    Install the CLI for local development.
+
+    <CodeGroup tabs="npm,yarn">
+    ```bash
+    npm install -g @savanth/cli
+    savanth init my-docs
+    savanth dev
+    ```
+    ```bash
+    yarn global add @savanth/cli
+    savanth init my-docs
+    savanth dev
+    ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="GitHub" icon="github">
+    Connect your repo directly.
+
+    1. Fork the template repo.
+    2. Enable Savanth in repo settings.
+    3. Push MDX files to `/docs`.
+  </Tab>
+</Tabs>
+
+<Expandable title="Advanced Configuration" default-open="false">
+Customize your theme in `savanth.config.js`:
+
+````javascript
+module.exports = {
+  theme: {
+    colors: {
+      primary: '#3B82F6'
+    }
+  },
+  components: ['Steps', 'Tabs', 'CodeGroup']
+};
+````
+
+</Expandable>
+
+Start building your docs today—your users will appreciate the clarity and interactivity.

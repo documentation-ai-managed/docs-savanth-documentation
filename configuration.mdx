@@ -1,0 +1,113 @@
+---
+title: Configuration and Customization
+description: Customize your documentation spaces to match your project's needs and branding.
+---
+
+## Setting Up Themes and Branding
+
+Tailor the appearance of your savanth documentation site to align with your brand. Update colors, logos, and fonts through a central configuration file.
+
+<Columns cols={3}>
+  <Card title="Primary Color" icon="palette" href="#">
+    Set your brand color like `#3B82F6` for buttons and highlights.
+  </Card>
+  <Card title="Logo Upload" icon="image" href="#">
+    Replace the default logo with your project's SVG or PNG.
+  </Card>
+  <Card title="Custom Fonts" icon="type" href="#">
+    Integrate Google Fonts or self-hosted typefaces.
+  </Card>
+</Columns>
+
+Follow these steps to apply theme changes:
+
+<Steps>
+  <Step title="Edit Config File" icon="edit-3">
+    Locate `savanth.config.json` in your project root.
+  </Step>
+  <Step title="Update Theme Object" icon="settings">
+    Modify the `theme` section with your values.
+  </Step>
+  <Step title="Rebuild Site" icon="refresh-cw">
+    Run `npm run build` to generate the updated site.
+  </Step>
+</Steps>
+
+## Managing User Permissions
+
+Control access to your documentation spaces with role-based permissions. Assign roles to users or teams to manage editing, viewing, and admin capabilities.
+
+Use the following table to understand default roles:
+
+| Role     | View Pages | Edit Content | Manage Users | Export Data |
+|----------|------------|--------------|--------------|-------------|
+| Viewer   | ✅        | ❌           | ❌           | ❌          |
+| Editor   | ✅        | ✅           | ❌           | ✅          |
+| Admin    | ✅        | ✅           | ✅           | ✅          |
+
+<Callout kind="tip">
+  Start with Viewer role for external collaborators to prevent accidental changes.
+</Callout>
+
+<Tabs>
+  <Tab title="Web UI" icon="globe">
+    Navigate to Settings > Users. Select a user and assign a role from the dropdown.
+  </Tab>
+  <Tab title="CLI" icon="terminal">
+    ```bash
+    savanth users set-role --user-id=123 --role=editor
+    ```
+  </Tab>
+  <Tab title="Config File" icon="file">
+    Add permissions directly in `permissions.json`:
+
+    <CodeGroup tabs="JSON,YAML">
+    ```json
+    {
+      "users": {
+        "user123": {
+          "role": "editor",
+          "spaces": ["docs", "api"]
+        }
+      }
+    }
+    ```
+    ```yaml
+    users:
+      user123:
+        role: editor
+        spaces:
+          - docs
+          - api
+    ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+## Configuring Export Options
+
+Enable exports for PDF, HTML, or Markdown to share documentation offline. Customize watermarks, page sizes, and included sections.
+
+<Expandable title="Advanced Export Settings" default-open="false">
+  For complex setups, use the `export` object in your config:
+
+  ```json
+  {
+    "export": {
+      "formats": ["pdf", "html"],
+      "pdf": {
+        "pageSize": "A4",
+        "watermark": "Confidential"
+      }
+    }
+  }
+  ```
+
+  Test exports with `savanth export --format=pdf --space=docs`.
+</Expandable>
+
+<Callout kind="alert">
+  Exports include all public pages by default. Use permissions to restrict sensitive content.
+</Callout>
+
+These configurations ensure your documentation remains secure, branded, and shareable. Rebuild your site after changes to see updates live.

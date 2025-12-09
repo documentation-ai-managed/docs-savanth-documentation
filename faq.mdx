@@ -1,0 +1,150 @@
+---
+title: Frequently Asked Questions
+description: Answers to common queries about using Savanth Documentation.
+---
+
+## Account and Space Management
+
+Manage your savanth Documentation account and spaces efficiently. Use these expandable sections for detailed guidance.
+
+<ExpandableGroup>
+
+<Expandable title="How do I create a new space?" default-open="true">
+
+Follow these steps to set up a new documentation space:
+
+<Steps>
+  <Step title="Navigate to Spaces" icon="layout">
+    Click your profile icon in the top-right corner and select `Spaces`.
+  </Step>
+  <Step title="Add New Space" icon="plus">
+    Click `New Space` and enter a name like `My Project Docs`.
+  </Step>
+  <Step title="Configure Settings" icon="settings">
+    Set permissions and brand color to `#3B82F6`.
+  </Step>
+</Steps>
+
+Your new space appears in the sidebar immediately.
+
+</Expandable>
+
+<Expandable title="Can I invite team members?">
+
+Yes, share spaces with your team.
+
+1. Open the space settings.
+2. Go to `Members` tab.
+3. Enter email addresses and assign roles: `Admin`, `Editor`, or `Viewer`.
+
+Invited users receive an email notification.
+
+</Expandable>
+
+</ExpandableGroup>
+
+<Callout kind="tip">
+  Tip: Use space templates to standardize new documentation areas across projects.
+</Callout>
+
+## Troubleshooting Common Issues
+
+Resolve frequent problems quickly with these targeted solutions.
+
+<Tabs>
+  <Tab title="Login Problems" icon="log-in">
+
+If you cannot log in:
+
+<Steps>
+  <Step title="Clear Browser Cache">
+    Press `Ctrl+Shift+Delete` (Windows) or `Cmd+Shift+Delete` (macOS) and clear cache.
+  </Step>
+  <Step title="Check Account Status">
+    Verify your email confirmation in your inbox.
+  </Step>
+  <Step title="Reset Password">
+    Use the `Forgot Password` link on the login page.
+  </Step>
+</Steps>
+
+</Tab>
+
+  <Tab title="Page Not Loading" icon="refresh-cw">
+
+Common causes include network issues or browser extensions.
+
+- Disable ad blockers temporarily.
+- Switch to incognito mode.
+- Ensure your connection supports `<10s` load times.
+
+If persists, check the status page at `status.savanth.com`.
+
+  </Tab>
+</Tabs>
+
+| Issue | Quick Fix | When to Contact Support |
+|-------|-----------|------------------------|
+| Slow sync | Refresh page | After 5 minutes |
+| Edit conflicts | Save manually | Immediate |
+| Export fails | Check file size `<50MB` | Always |
+
+## Integration and Support
+
+Integrate savanth Documentation with your tools and get help when needed.
+
+<Columns cols={2}>
+  <Card title="API Integration" icon="code" href="/docs/api">
+    Connect via REST API using your space token.
+  </Card>
+  <Card title="GitHub Sync" icon="github" href="/docs/github" target="_blank">
+    Automate docs from your repo. View setup guide.
+  </Card>
+</Columns>
+
+### Embedding Content
+
+Use this CodeGroup for multi-platform embeds:
+
+<CodeGroup tabs="JavaScript,React">
+  ```javascript
+  const embedScript = document.createElement('script');
+  embedScript.src = 'https://savanth.com/embed.js';
+  embedScript.setAttribute('space-id', 'your-space-id');
+  document.head.appendChild(embedScript);
+  ```
+  ```jsx
+  import { SavanthEmbed } from '@savanth/embed';
+
+  function DocsEmbed() {
+    return (
+      <SavanthEmbed spaceId="your-space-id" height={600} />
+    );
+  }
+  ```
+</CodeGroup>
+
+<Callout kind="info">
+  Replace `your-space-id` with your actual ID from space settings. Generate API tokens under `Integrations > API`.
+</Callout>
+
+### Getting Support
+
+- **Community Forum**: Post questions at `forum.savanth.com`.
+- **Email Support**: `support@savanth.com` for paid plans.
+- **Status Updates**: Monitor `status.savanth.com`.
+
+For urgent issues, include your space ID and browser details.
+
+<Expandable title="Advanced Troubleshooting">
+
+Run this diagnostic command in your browser console:
+
+````javascript
+console.log('Savanth Diagnostics');
+fetch('/api/health')
+  .then(res => res.json())
+  .then(data => console.table(data));
+````
+
+</Expandable>

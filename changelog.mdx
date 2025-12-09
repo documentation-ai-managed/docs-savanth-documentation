@@ -1,0 +1,137 @@
+---
+title: Changelog
+description: Version history and updates for Savanth Documentation.
+---
+
+## Overview
+
+Savanth Documentation tracks all changes in a centralized changelog. You review updates here to understand new features, bug fixes, and improvements. Stay current by checking this page regularly or subscribing to release notifications.
+
+<Callout kind="info">
+  Upgrade to the latest version for security patches and performance gains. Use the steps below to update your installation.
+</Callout>
+
+<Columns cols={3}>
+  <Card title="Recent Releases" icon="git-branch" href="#recent">
+    View the three most recent versions with key changes.
+  </Card>
+  <Card title="Upgrade Guide" icon="upload" href="#upgrade">
+    Follow simple steps to install the latest release.
+  </Card>
+  <Card title="Upcoming" icon="clock" href="#upcoming">
+    Preview features planned for future releases.
+  </Card>
+</Columns>
+
+## Recent Releases
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added support for `<Tabs>` and `<Steps>` components in MDX pages
+- Introduced brand color customization (`#3B82F6` default)
+
+## Improvements
+
+- Enhanced search with fuzzy matching for 2x faster results
+- Optimized rendering for pages with multiple components
+
+## Bug Fixes
+
+- Fixed parsing errors with nested code blocks
+- Resolved anchor link issues in expandable sections
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated `<CodeGroup>` for multi-language examples
+- Added `<Columns>` layout for responsive card grids
+
+## Bug Fixes
+
+- Corrected Mermaid diagram rendering (code block only)
+- Patched special character escaping in prose (`{variable}`, `<100ms`)
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core MDX components: `<Callout>`, `<Card>`, `<Update>`
+- Full YAML frontmatter validation with no blank lines
+
+## Breaking Changes
+
+- Removed H1 support; always start with H2 headings
+- Enforced double quotes for JSX string attributes
+
+</Update>
+
+## Upgrade Guide
+
+Follow these steps to upgrade Savanth Documentation to the latest version.
+
+<Steps>
+  <Step title="Check Current Version" icon="package">
+    Run the version check command.
+
+    ```bash
+    savanth --version
+    ```
+  </Step>
+  <Step title="Update Package" icon="upload">
+    Use your package manager.
+
+    <CodeGroup tabs="npm,yarn,pnpm">
+      ```bash
+      npm update savanth@latest
+      ```
+      ```bash
+      yarn upgrade savanth@latest
+      ```
+      ```bash
+      pnpm update savanth@latest
+      ```
+    </CodeGroup>
+  </Step>
+  <Step title="Rebuild Docs" icon="refresh-cw">
+    Rebuild your documentation site.
+
+    ```bash
+    savanth build
+    savanth serve
+    ```
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  After upgrading, test your pages for parsing errors, especially nested components and special characters.
+</Callout>
+
+## Upcoming Changes
+
+<ExpandableGroup>
+  <Expandable title="v1.3.0 Preview" default-open="false">
+
+    Plan to release in November 2024:
+
+    | Feature | Status | Impact |
+    |---------|--------|--------|
+    | Native Mermaid support | In Progress | Enhanced diagrams |
+    | AI-assisted content generation | Planned | Faster docs creation |
+    | Dark mode toggle | Complete | Better UX |
+
+    Watch this space for beta access.
+  </Expandable>
+  <Expandable title="Deprecations">
+
+    - `<ParamField>` multiple location attributes (use one only)
+    - Single quotes in JSX attributes (double quotes required)
+
+  </Expandable>
+</ExpandableGroup>
